@@ -124,6 +124,13 @@ int main() {
         }
     }
 
+    for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            if (vm.items[row][col] != NULL) {
+                free(vm.items[row][col]);
+            }
+        }
+    }
 }
 
 void clear_buffer() {
@@ -280,7 +287,6 @@ int restock(Vending_Machine_T *vm, char *label, int quantity) {
     vm->quantity[row][col] += quantity;
     return 0;
 }
-
 
 int remove_item(Vending_Machine_T *vm, char *label) {
     int idx = convert_label_to_index(label);
